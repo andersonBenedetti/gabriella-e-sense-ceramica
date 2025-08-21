@@ -1,0 +1,140 @@
+#footer {
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid $white-color;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-logo {
+      max-width: 160px;
+      transition: max-width 0.4s ease;
+
+      &:hover img {
+        transform: scale(1.1);
+      }
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    p {
+      color: $black;
+    }
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid $white-color;
+    padding-bottom: 50px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &:first-child {
+        max-width: 217px;
+      }
+
+      h3 {
+        @include title-footer;
+        color: $secondaryColor;
+      }
+
+      a {
+        @include text-small;
+        color: $text;
+        font-style: normal;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $black;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 20px;
+    }
+  }
+
+  .items-language {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+
+    a {
+      @include text-small-medium;
+      color: $primaryColor;
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    p {
+      @include text-small;
+      color: $black;
+
+      a {
+        color: $black;
+      }
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

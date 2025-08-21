@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body,
+html {
+  font-family: $font-primary;
+  @include text;
+  color: $text;
+  background-color: $white;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 87px;
+
+  @media (max-width: 1200px) {
+    padding-top: 64px;
+  }
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
