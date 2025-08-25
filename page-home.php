@@ -5,34 +5,7 @@
 <?php get_header(); ?>
 
 <?php
-$infos = [
-    [
-        'icon' => 'hugeicons_truck.svg',
-        'alt' => 'Entrega para todo Brasil',
-        'title' => 'Entrega para todo Brasil',
-        'subtitle' => 'Chegamos até você'
-    ],
-    [
-        'icon' => 'bytesize_calendar.svg',
-        'alt' => '12 anos fazendo roupas',
-        'title' => '12 anos fazendo roupas',
-        'subtitle' => 'Qualidade garantida'
-    ],
-    [
-        'icon' => 'tabler_ruler.svg',
-        'alt' => 'Calças com alturas diferentes',
-        'title' => 'Calças com alturas diferentes',
-        'subtitle' => 'Para as mais altas e mais baixas'
-    ],
-    [
-        'icon' => 'lsicon_clothes-outline.svg',
-        'alt' => 'Roupas práticas feitas para seu dia a dia',
-        'title' => 'Roupas práticas feitas para seu dia a dia',
-        'subtitle' => 'Para trabalhar, para treinar, para sair a noite'
-    ]
-];
-
-function flore_show_products($args = [])
+function gabriella_show_products($args = [])
 {
     $products_query = wc_get_products($args);
     if (empty($products_query)) {
@@ -40,7 +13,7 @@ function flore_show_products($args = [])
         return;
     }
     $products_formatted = format_products($products_query);
-    flore_product_list($products_formatted);
+    gabriella_product_list($products_formatted);
 }
 ?>
 
@@ -87,98 +60,202 @@ function flore_show_products($args = [])
         <div class="swiper-pagination" aria-hidden="true"></div>
     </section>
 
-    <section class="section-infos">
-        <div class="infos-content">
-            <?php
-            foreach ($infos as $info): ?>
-                <div class="infos-item">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/icons/' . $info['icon']; ?>"
-                        alt="<?php echo esc_attr($info['alt']); ?>">
+    <section class="section-categories">
+        <h2 class="title-section">Ambientes</h2>
+        <h3>Encontre o revestimento ideal para o seu espaço</h3>
 
-                    <h3>
-                        <?php echo esc_html($info['title']); ?>
-                        <span><?php echo esc_html($info['subtitle']); ?></span>
-                    </h3>
+        <div class="cat-carousel-wrapper">
+            <div class="cat-carousel swiper">
+                <div class="swiper-wrapper">
+                    <?php
+                    $product_categories = get_terms([
+                        'taxonomy' => 'product_cat',
+                        'hide_empty' => false,
+                    ]);
+
+                    if (!empty($product_categories) && !is_wp_error($product_categories)):
+                        foreach ($product_categories as $category):
+                            $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+                            $image_url = wp_get_attachment_url($thumbnail_id);
+                            $image_url = $image_url ? $image_url : get_stylesheet_directory_uri() . '/img/default-category.webp';
+                            ?>
+                            <a class="swiper-slide" href="<?php echo get_term_link($category); ?>"
+                                aria-label="<?php echo esc_attr($category->name); ?>">
+                                <img class="img-slide" src="<?php echo esc_url($image_url); ?>"
+                                    alt="<?php echo esc_attr($category->name); ?>" loading="lazy" width="400" height="400">
+                                <div class="btn-bottom">
+                                    <?php echo esc_html($category->name); ?>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/ph_arrow-up-right-thin.svg"
+                                        alt="icone arrow">
+                                </div>
+                            </a>
+                            <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="section-products">
-        <div class="container">
-            <div class="products-top">
-                <h2 class="title-section">De acordo com você</h2>
-
-                <a class="btn dkt" href="/loja">
-                    Ver mais itens
-                </a>
             </div>
 
-            <?php
-            flore_show_products([
-                'limit' => 4,
-                'status' => 'publish',
-                'featured' => true
-            ]);
-            ?>
-
-            <a class="btn mbl" href="/loja">
-                Ver mais itens
-            </a>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination secondary" aria-hidden="true"></div>
         </div>
+
+        <a class="btn" href="#">
+            <span>Veja a coleção completa</span>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-btn.svg" alt="icone arrow">
+        </a>
     </section>
 
-    <section class="section-items">
-        <div class="item-store">
-            <h3 class="title-section">Ultimas novidades</h3>
-            <a class="btn secondary" href="#">
-                Ver mais itens
-            </a>
-        </div>
-
-        <div class="item-store">
-            <h3 class="title-section">Mais vendidos</h3>
-            <a class="btn secondary" href="#">
-                Ver mais itens
-            </a>
-        </div>
-    </section>
-
-    <section class="section-products">
-        <div class="container">
-            <div class="products-top">
-                <h2 class="title-section">De acordo com você</h2>
-
-                <a class="btn dkt" href="/loja">
-                    Ver mais itens
-                </a>
+    <section class="section-about container">
+        <div class="content-top">
+            <div>
+                <p class="subtitle">Sobre nós</p>
+                <h2>Revestimentos artísticos em pequenos formatos, feitos para transformar espaços em obras de arte</h2>
             </div>
 
-            <?php
-            flore_show_products([
-                'limit' => 4,
-                'status' => 'publish',
-            ]);
-            ?>
+            <img class="img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/sobre-nos-home.webp"
+                alt="Sobre nós">
+        </div>
 
-            <a class="btn mbl" href="/loja">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/cart.svg" alt="Carrinho lateral">
-                Ver mais itens
+        <div class="content-bottom">
+            <div class="gallery">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-1.webp" alt="Sobre nós">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-2.webp" alt="Sobre nós">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-3.webp" alt="Sobre nós">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-4.webp" alt="Sobre nós">
+            </div>
+
+            <p>Somos uma fábrica de revestimentos cerâmicos, especializada em pequenos formatos e produtos decorativos,
+                situada na tradicional cidade de Criciúma, Santa Catarina. Ao longo das duas últimas décadas, dedicamos
+                nossa expertise ao refinamento estético, à inovação e à qualidade, resultando em criações que
+                transcendem a função para se tornarem verdadeiras obras de arte.</p>
+        </div>
+    </section>
+
+    <section class="section-story container">
+        <div class="story-content">
+            <div class="story-counter">
+                <p>+ DE</p>
+                <p class="counter" data-target="25">0</p>
+                <p class="text">Anos de tradição no mercado cerâmico de pequenos formatos</p>
+            </div>
+
+            <div class="story-counter">
+                <p>+ DE</p>
+                <p class="counter" data-target="20">0</p>
+                <p class="text">Coleções ativas no catálogo</p>
+            </div>
+
+            <div class="story-counter">
+                <p>+ DE</p>
+                <p class="counter" data-target="4000">0</p>
+                <p class="text">Revendedores parceiros</p>
+            </div>
+        </div>
+
+        <a class="btn secondary" href="#">
+            <span>Conheça nossa história</span>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-btn-secondary.svg" alt="icone arrow">
+        </a>
+    </section>
+
+    <section class="section-gallery container">
+        <h2 class="title-section">Ambientes</h2>
+        <h3>Encontre o revestimento ideal para o seu espaço</h3>
+
+        <div class="gallery-content">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-7.webp" alt="foto">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-5.webp" alt="foto">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-9.webp" alt="foto">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-10.webp" alt="foto">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-8.webp" alt="foto">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-6.webp" alt="foto">
+        </div>
+    </section>
+
+    <section class="section-find">
+        <div class="container">
+            <h2 class="title-section">onde encontrar</h2>
+            <h3>Saiba onde encontrar nossas peças.</h3>
+            <a class="btn secondary" href="#">
+                <span>Encontre</span>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-btn-secondary.svg"
+                    alt="icone arrow">
             </a>
         </div>
     </section>
 
-    <section class="section-social">
-        <div class="social-content">
-            <h2 class="title-section">
-                Siga-nos no Instagram
-            </h2>
-            <p class="subtitle">@flore.veste</p>
+    <section class="section-blog container">
+        <div class="blog-top">
+            <div>
+                <h2 class="title-section">Blog</h2>
+                <h3>Tendências, lançamentos e novidades do setor</h3>
+            </div>
             <a class="btn" href="#">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/iconoir_instagram.svg" alt="Instagram">
-                Seguir
+                <span>leia todas</span>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-btn.svg" alt="icone arrow">
             </a>
         </div>
+
+        <?php
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 2,
+        );
+        $loop = new WP_Query($args);
+
+        if ($loop->have_posts()):
+            echo '<div class="blog-cards">';
+            while ($loop->have_posts()):
+                $loop->the_post(); ?>
+                <a href="<?php the_permalink(); ?>" class="blog-card">
+                    <?php if (has_post_thumbnail()): ?>
+                        <div class="blog-card-img">
+                            <?php the_post_thumbnail('medium'); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="blog-card-infos">
+                        <div class="blog-card-top">
+                            <?php
+                            $categories = get_the_category();
+                            if ($categories): ?>
+                                <span class="blog-card-category"><?php echo esc_html($categories[0]->name); ?></span>
+                            <?php endif; ?>
+
+                            <?php if (get_field('data_do_post')): ?>
+                                <span class="blog-card-date"><?php the_field('data_do_post'); ?></span>
+                            <?php endif; ?>
+                        </div>
+
+                        <h3 class="blog-card-title"><?php the_title(); ?></h3>
+
+                        <?php if (get_field('descricao_do_post')): ?>
+                            <p class="blog-card-description"><?php the_field('descricao_do_post'); ?></p>
+                        <?php endif; ?>
+
+                        <p class="blog-card-btn">
+                            <span>Leia mais</span>
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-blog.svg" alt="icone arrow">
+                        </p>
+                    </div>
+                </a>
+            <?php endwhile;
+            echo '</div>';
+            wp_reset_postdata();
+        endif;
+        ?>
     </section>
 
-</main><?php get_footer(); ?>
+    <section class="section-social container">
+        <h2 class="title-section">instagram</h2>
+        <h3>@gabriellarevestimentos_oficial</h3>
+        <a class="btn" href="#">
+            <span>siga-nos</span>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-btn.svg" alt="icone arrow">
+        </a>
+    </section>
+</main>
+
+<?php get_footer(); ?>

@@ -38,24 +38,16 @@ $font-primary: "Kumbh Sans", sans-serif;
 
 @mixin title-section {
   font-weight: 400;
-  font-size: 2.5em;
+  font-size: 1.125em;
   line-height: 1;
-
-  @media (max-width: 768px) {
-    font-size: 2em;
-  }
+  letter-spacing: 7px;
+  text-transform: uppercase;
 }
 
 @mixin title-card-cat {
   font-weight: 600;
   font-size: 1.5em;
   line-height: 28.8px;
-}
-
-@mixin btn-cat {
-  font-weight: 600;
-  font-size: 1em;
-  line-height: 19.2px;
 }
 
 @mixin text-list {
@@ -76,11 +68,9 @@ $font-primary: "Kumbh Sans", sans-serif;
 }
 
 @mixin text-top {
-  font-weight: 500;
-  font-size: 0.813em;
-  line-height: 1;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 34px;
 }
 
 @mixin title-card {
@@ -95,17 +85,20 @@ $font-primary: "Kumbh Sans", sans-serif;
   line-height: 1;
 }
 
-@mixin label-promo {
-  font-weight: 600;
+@mixin btn-card-blog {
+  font-weight: 300;
   font-size: 0.75em;
   line-height: 1;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 @mixin subtitle {
   font-weight: 400;
-  font-size: 2em;
+  font-size: 1.125em;
   line-height: 1;
+  letter-spacing: 7px;
+  text-transform: uppercase;
 }
 
 @mixin title-intro {
@@ -127,4 +120,59 @@ $font-primary: "Kumbh Sans", sans-serif;
   @media (max-width: 768px) {
     font-size: 2em;
   }
+}
+
+@mixin btn-cat {
+  font-weight: 300;
+  font-size: 0.875em;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@mixin btn-text {
+  font-weight: 300;
+  font-size: 0.875em;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@mixin title-extra-light {
+  font-weight: 200;
+  font-size: 3em;
+  line-height: 59px;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+    line-height: 1.5;
+  }
+}
+
+@mixin text-regular {
+  font-weight: 400;
+  font-size: 1.125em;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@mixin counter {
+  font-weight: 200;
+  font-size: 4.5em;
+  line-height: 55px;
+  letter-spacing: -0.01em;
+}
+
+@mixin text-category {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 1;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+@mixin title-blog-card {
+  font-weight: 400;
+  font-size: 1.313em;
+  line-height: 34px;
 }

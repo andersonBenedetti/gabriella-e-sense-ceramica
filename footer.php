@@ -150,6 +150,7 @@ $footer_menu_produtos = [
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/popup.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/toggle.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/quantity.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/counter-story.js"></script>
 
 <?php wp_footer(); ?>
 </body>

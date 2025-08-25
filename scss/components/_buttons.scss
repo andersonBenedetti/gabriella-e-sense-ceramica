@@ -4,25 +4,54 @@
   align-items: center;
   gap: 5px;
   width: max-content;
-  height: 54px;
-  padding: 0 50px;
-  @include text;
-  color: $tertiaryColor;
+  height: 44px;
+  padding: 2px;
   border: 1px solid $border-btn;
   box-sizing: border-box;
   border-radius: 0;
   background-color: $white;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background-color: $border-btn;
+
+    span {
+      color: $img-btn;
+    }
+  }
+
+  span {
+    display: block;
+    @include btn-text;
+    color: $black;
+    padding: 0 5px;
+    transition: color 0.3s ease;
+  }
+
+  img {
+    width: 40px;
+    height: 36px;
+    background-color: $img-btn;
+    padding: 10px;
+    transition: background-color 0.3s ease;
   }
 
   &.secondary {
-    background-color: $tertiaryColor;
-    border: 0;
-    color: $white;
+    border-color: $primaryColor;
+
+    img {
+      background-color: $tertiaryColor;
+    }
+
+    &:hover {
+      background-color: $primaryColor;
+
+      img {
+        background-color: $white;
+      }
+    }
   }
 }

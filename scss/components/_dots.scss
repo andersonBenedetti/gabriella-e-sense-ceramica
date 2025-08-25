@@ -34,21 +34,21 @@
     }
   }
 
-  &.black {
+  &.secondary {
     .swiper-pagination-bullet {
-      background-color: $black;
+      background-color: $border-btn;
       opacity: 0.53;
 
       &:hover {
-        background-color: $black;
+        background-color: $border-btn;
       }
 
       &:focus {
-        outline: 2px solid $black;
+        outline: 2px solid $border-btn;
       }
 
       &.swiper-pagination-bullet-active {
-        background-color: $black;
+        background-color: $border-btn;
         opacity: 1;
       }
     }

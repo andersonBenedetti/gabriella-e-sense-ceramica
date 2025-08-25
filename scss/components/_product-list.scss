@@ -81,7 +81,6 @@
         display: block;
         background-color: $tertiaryColor;
         padding: 5px 20px;
-        @include label-promo;
         color: $white;
         z-index: 2;
       }
