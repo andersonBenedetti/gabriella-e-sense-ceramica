@@ -176,3 +176,16 @@ $font-primary: "Kumbh Sans", sans-serif;
   font-size: 1.313em;
   line-height: 34px;
 }
+
+@mixin text-search {
+  font-weight: 600;
+  font-size: 0.75em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@mixin title-single-post {
+  font-weight: 200;
+  font-size: 2em;
+  line-height: 59px;
+}

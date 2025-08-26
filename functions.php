@@ -37,10 +37,8 @@ function format_products($products)
         $products_final[] = [
             'id' => $product->get_id(),
             'name' => $product->get_name(),
-            'price' => $product->get_price_html(),
             'img' => $image ? $image[0] : '',
             'link' => $product->get_permalink(),
-            'on_sale' => $product->is_on_sale(),
         ];
     }
     return $products_final;
@@ -55,18 +53,16 @@ function gabriella_product_list($products)
             <a href="<?= esc_url($product['link']); ?>" class="product-link">
                 <div class="product-img">
                     <img src="<?= esc_url($product['img']); ?>" alt="<?= esc_attr($product['name']); ?>" />
-                    <?php if ($product['on_sale']): ?>
-                        <span class="product-badge">Promo</span>
-                    <?php endif; ?>
                 </div>
 
                 <h3 class="product-name">
                     <?= esc_html($product['name']); ?>
                 </h3>
 
-                <span class="product-price">
-                    <?= wp_kses_post($product['price']); ?>
-                </span>
+                <p class="btn-product">
+                    <span>Mais detalhes</span>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/icons/arrow-product.svg" alt="icone arrow">
+                </p>
             </a>
         </li>
         <?php
