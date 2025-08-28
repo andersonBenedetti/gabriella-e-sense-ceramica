@@ -3,7 +3,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: $white-color;
+  background-color: $white;
   transition: padding 0.3s ease, background-color 0.3s ease;
 
   &.shrink {

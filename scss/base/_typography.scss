@@ -189,3 +189,11 @@ $font-primary: "Kumbh Sans", sans-serif;
   font-size: 2em;
   line-height: 59px;
 }
+
+@mixin category-product {
+  font-weight: 400;
+  font-size: 0.75em;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
