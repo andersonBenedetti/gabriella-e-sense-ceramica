@@ -5,38 +5,48 @@
 <?php get_header(); ?>
 
 <main id="pg-policy">
-    <div class="intro-page"></div>
+  <section class="section-intro contact">
+    <div class="container">
+      <div class="intro-content">
+        <h1 class="title">Entre em contato</h1>
 
-    <section class="section-intro">
-        <div class="container">
-            <h1 class="title">Fale conosco</h1>
-            <p>Entre em contato através de um dos canais abaixo. Estamos prontos para te atender!</p>
-        </div>
-    </section>
+        <div class="container-contact">
+          <div class="contact-item">
+            <span>Telefone</span>
+            <p>+55 (48) 3431-7000</p>
+            <p>0800 480 0888</p>
+          </div>
 
-    <section class="section-contact-info">
-        <div class="container">
-            <ul class="contact-list">
-                <li>
-                    <strong>WhatsApp:</strong>
-                    <a href="https://wa.me/55489999999999" target="_blank" rel="noopener noreferrer">(48) 99121-9619</a>
-                </li>
-                <li>
-                    <strong>E-mail:</strong>
-                    <a href="mailto:atendimento@floreveste.com.br">atendimento@floreveste.com.br</a>
-                </li>
-                <li>
-                    <strong>Instagram:</strong>
-                    <a href="https://www.instagram.com/flore.veste" target="_blank"
-                        rel="noopener noreferrer">@flore.veste</a>
-                </li>
-                <li>
-                    <strong>Endereço:</strong>
-                    R. Vicente Nunes Barcelos, 218 - Santa Barbara, Criciúma - SC, 88804-090
-                </li>
-            </ul>
+          <div class="contact-item">
+            <span>E-mail</span>
+            <p>contato@gabcer.com.br</p>
+          </div>
+
+          <div class="contact-item">
+            <span>endereço</span>
+            <p>Rodovia Governador Jorge Lacerda 10300, Km 20, Bairro Verdinho, Criciúma/SC,</p>
+            <p>88814-552</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-content">
+    <div class="content-work">
+      <div class="contact-form">
+        <h2>venha fazer parte do nosso time!</h2>
+        <?php echo do_shortcode('[contact-form-7 id="67c5b12" title="Formulário de Entre em contato"]'); ?>
+      </div>
+
+      <div class="gallery">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-1.webp" alt="Sobre nós">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-2.webp" alt="Sobre nós">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-3.webp" alt="Sobre nós">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/gallery-4.webp" alt="Sobre nós">
+      </div>
+    </div>
+  </section>
 
 </main>
 
