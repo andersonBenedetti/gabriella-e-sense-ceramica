@@ -205,3 +205,9 @@ $font-primary: "Kumbh Sans", sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+
+@mixin link-summary {
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1;
+}
